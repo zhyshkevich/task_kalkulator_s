@@ -21,16 +21,18 @@ public abstract class CloudantRepository<T extends CloudantModel> implements Dao
     private final Class<T> type;
     private final String getByUuidView;
     private final String getAllView;
+    private final String getByCountryName;
 
-    @Autowired
     public CloudantRepository(Database database,
                               Class<T> type,
                               String getByUuidView,
-                              String getAllView) {
+                              String getAllView,
+                              String getByCountryName) {
         this.database = database;
         this.type = type;
         this.getByUuidView = getByUuidView;
         this.getAllView = getAllView;
+        this.getByCountryName = getByCountryName;
     }
 
     @Override
@@ -44,19 +46,45 @@ public abstract class CloudantRepository<T extends CloudantModel> implements Dao
     }
 
     @Override
-    public T findByUuid(String id) {
+    public T findByUuid(String uuid) {
         List<T> models = null;
         try {
             models = database.getViewRequestBuilder(getByUuidView, getByUuidView)
                     .newRequest(Key.Type.STRING, type)
                     .stale(STALE_OK)
                     .includeDocs(true)
-                    .keys(id)
+                    .keys(uuid)
                     .build()
                     .getResponse()
                     .getDocsAs(type);
-        } catch (IOException e) {
-            LOG.error("Cannot connect to the database", e);
+        } catch (Exception e) {
+            LOG.error("Can't connect to database", e);
+        }
+
+        if (models.isEmpty()){
+            throw new CountriesRuntimeException("Can't find model");
+        }
+        return models.get(0);
+    }
+
+    @Override
+    public T findByCountryName(String countryName){
+        List<T> models = null;
+        try {
+            models = database.getViewRequestBuilder(getByCountryName, getByCountryName)
+                    .newRequest(Key.Type.STRING, type)
+                    .stale(STALE_OK)
+                    .includeDocs(true)
+                    .keys(countryName)
+                    .build()
+                    .getResponse()
+                    .getDocsAs(type);
+        } catch (Exception e) {
+            LOG.error("Can't connect to database", e);
+        }
+
+        if (models.isEmpty()){
+            throw new CountriesRuntimeException("Can't find model");
         }
         return models.get(0);
     }

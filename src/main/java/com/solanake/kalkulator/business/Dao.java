@@ -13,6 +13,8 @@ public interface Dao<T extends CloudantModel, PK extends Serializable> {
 
     T findByUuid(String uuid);
 
+    T findByCountryName(String countryName);
+
     List<T> findAll();
 
     boolean update(T entity);

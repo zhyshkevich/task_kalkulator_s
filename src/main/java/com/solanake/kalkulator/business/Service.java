@@ -13,6 +13,8 @@ public interface Service<T extends CloudantModel, PK extends Serializable> {
 
     T findByUuid(String uuid);
 
+    T findByCountryName(String countryName);
+
     boolean update(T entity);
 
     void delete(PK id);

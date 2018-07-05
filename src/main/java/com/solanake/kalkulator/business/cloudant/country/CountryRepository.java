@@ -14,9 +14,10 @@ public class CountryRepository extends CloudantRepository<CountryModel> {
     public CountryRepository(
             @Qualifier("countriesDatabase") Database articlesDatabase,
             @Value("${cloudant.countires.view.getByUuid}") String getByUuidView,
-            @Value("${cloudant.countires.view.getAll}") String getAllView
+            @Value("${cloudant.countires.view.getAll}") String getAllView,
+            @Value("${cloudant.countries.view.getByCountryName}") String getByCountryName
 
     ){
-        super(articlesDatabase, CountryModel.class, getByUuidView, getAllView);
+        super(articlesDatabase, CountryModel.class, getByUuidView, getAllView, getByCountryName);
     }
 }

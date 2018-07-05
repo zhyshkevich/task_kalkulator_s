@@ -30,6 +30,9 @@ public class CloudantService<T extends CloudantModel, D extends CloudantReposito
     public T findByUuid(String uuid) { return dao.findByUuid(uuid); }
 
     @Override
+    public T findByCountryName(String countryName) { return dao.findByCountryName(countryName.toLowerCase()); }
+
+    @Override
     public boolean update(T entity) {
         return dao.update(entity);
     }
