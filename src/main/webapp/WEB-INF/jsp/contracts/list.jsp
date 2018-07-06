@@ -43,16 +43,13 @@
 					<td>${country.tax} %</td>
 					<td>${country.cost}</td>
 					<td>${country.currencyCode}<td>
-						<%--<spring:bind path="name">--%>
-					<td><form input type="text" class="form-control " id="name" placeholder="Name" /><td>
-					<%--</spring:bind>--%>
-						<spring:url value="/contracts/${country.countryName}" var="countryUrl" />
-						<spring:url value="/contracts/${user.id}/delete" var="deleteUrl" />
+						<spring:url value="/contracts/${country.uuid}" var="countryUrl" />
+						<spring:url value="/contracts/${country.uuid}/delete" var="deleteUrl" />
 						<spring:url value="/contracts/${user.id}/update" var="updateUrl" />
 
-						<button class="btn btn-info" onclick="location.href='${countryUrl}'">Query</button>
-						<button class="btn btn-primary" onclick="location.href='${updateUrl}'">Update</button>
-						<button class="btn btn-danger" onclick="this.disabled=true;post('${deleteUrl}')">Delete</button></td>
+						<button class="btn btn-info" onclick="location.href='${countryUrl}'">Enter salary</button>
+						<%--<button class="btn btn-primary" onclick="location.href='${updateUrl}'">Update</button>--%>
+						<button class="btn btn-danger" onclick="location.href='${deleteUrl}'">Delete</button></td>
 				</tr>
 			</c:forEach>
 		</table>

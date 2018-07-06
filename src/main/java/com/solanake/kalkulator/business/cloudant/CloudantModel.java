@@ -10,19 +10,14 @@ public abstract class CloudantModel {
     @SerializedName("_rev")
     private String rev;
 
-    private Boolean isDeleted;
 
     public CloudantModel() {
     }
 
-    public CloudantModel(Boolean isDeleted) {
-        this.isDeleted = isDeleted;
-    }
 
-    public CloudantModel(String id, String rev, Boolean isDeleted) {
+    public CloudantModel(String id, String rev) {
         this.id = id;
         this.rev = rev;
-        this.isDeleted = isDeleted;
     }
 
     public String getId() {
@@ -39,13 +34,5 @@ public abstract class CloudantModel {
 
     public void setRev(String rev) {
         this.rev = rev;
-    }
-
-    public Boolean getDeleted() {
-        return isDeleted;
-    }
-
-    public void setDeleted(Boolean deleted) {
-        isDeleted = deleted;
     }
 }

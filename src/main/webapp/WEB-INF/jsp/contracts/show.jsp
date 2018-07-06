@@ -20,59 +20,45 @@
 		</div>
 	</c:if>
 
-	<h1>User Detail</h1>
+	<h1>Conctract Detail</h1>
 	<br />
 
 	<div class="row">
 		<label class="col-sm-2">ID</label>
-		<div class="col-sm-10">${user.id}</div>
+		<div class="col-sm-10">${country.uuid}</div>
 	</div>
 
 	<div class="row">
 		<label class="col-sm-2">Name</label>
-		<div class="col-sm-10">${user.name}</div>
+		<div class="col-sm-10">${country.countryName}</div>
 	</div>
 
 	<div class="row">
-		<label class="col-sm-2">Email</label>
-		<div class="col-sm-10">${user.email}</div>
+		<label class="col-sm-2">Tax</label>
+		<div class="col-sm-10">${country.tax} %</div>
 	</div>
 
 	<div class="row">
-		<label class="col-sm-2">Address</label>
-		<div class="col-sm-10">${user.address}</div>
+		<label class="col-sm-2">Cost</label>
+		<div class="col-sm-10">${country.cost}</div>
 	</div>
 
 	<div class="row">
-		<label class="col-sm-2">Newsletter</label>
-		<div class="col-sm-10">${user.newsletter}</div>
+		<label class="col-sm-2">Currency code</label>
+		<div class="col-sm-10">${country.currencyCode}</div>
 	</div>
 
 	<div class="row">
-		<label class="col-sm-2">Web Frameworks</label>
-		<div class="col-sm-10">${user.framework}</div>
+		<label class="col-sm-2">Date created</label>
+		<div class="col-sm-10">${country.dateCreated}</div>
 	</div>
 
-	<div class="row">
-		<label class="col-sm-2">Sex</label>
-		<div class="col-sm-10">${user.sex}</div>
-	</div>
-
-	<div class="row">
-		<label class="col-sm-2">Number</label>
-		<div class="col-sm-10">${user.number}</div>
-	</div>
-
-	<div class="row">
-		<label class="col-sm-2">Country</label>
-		<div class="col-sm-10">${user.country}</div>
-	</div>
-
-	<div class="row">
-		<label class="col-sm-2">Skill</label>
-		<div class="col-sm-10">${user.skill}</div>
-	</div>
-
+	<form name="foo" action="/contractsCalc" method="post">
+		<input type="hidden"  name="uuid" value="${country.uuid}"/>
+		<label class="col-sm-2 control-label">Enter daily salary</label>
+		<input name="value" class="form-control-plaintext" type="text" />
+		<input type="submit" class="btn-md btn-primary pull-center" value="Count">
+		</form>
 </div>
 
 

@@ -109,10 +109,9 @@ public abstract class CloudantRepository<T extends CloudantModel> implements Dao
     }
 
     @Override
-    public void delete(String id) {
-        T entity = findOne(id);
-        entity.setDeleted(true);
-        database.update(entity);
+    public void delete(String uuid) {
+        T entity = findByUuid(uuid);
+        database.remove(entity);
     }
 
     @Override

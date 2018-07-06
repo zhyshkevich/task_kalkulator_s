@@ -10,7 +10,7 @@
 </head>
 
 <spring:url value="/" var="urlHome" />
-<spring:url value="/users/add" var="urlAddUser" />
+<spring:url value="/contracts/add" var="urlAddContract" />
 
 <nav class="navbar navbar-inverse ">
 	<div class="container">
@@ -19,7 +19,7 @@
 		</div>
 		<div id="navbar">
 			<ul class="nav navbar-nav navbar-right">
-				<li class="active"><a href="${urlAddUser}">Add contract</a></li>
+				<li class="active"><a href="${urlAddContract}">Add contract</a></li>
 			</ul>
 		</div>
 	</div>

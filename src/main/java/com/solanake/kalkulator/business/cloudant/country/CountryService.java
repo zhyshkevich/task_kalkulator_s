@@ -39,7 +39,8 @@ public class CountryService extends CloudantService<CountryModel, CountryReposit
         CountryModel countryModel = findByCountryName(countryName);
         Double currency;
 
-        if ("poland".equals(countryName.toLowerCase().trim())){
+        if ("poland".equals(countryName.toLowerCase().trim()) ||
+                "pln".equals(countryModel.getCurrencyCode().toLowerCase().trim())){
             currency = 1.0;
         } else {
             currency = currencyUtil.getCurrencyRate(countryModel.getCurrencyCode());

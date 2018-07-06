@@ -101,7 +101,6 @@ public class CountryModel extends CloudantModel {
                 ", cost=" + cost +
                 ", currencyCode='" + currencyCode + '\'' +
                 ", dateCreated='" + dateCreated + '\'' +
-                ", isDeleted='" + super.getDeleted() +
                 '}';
     }
 }
