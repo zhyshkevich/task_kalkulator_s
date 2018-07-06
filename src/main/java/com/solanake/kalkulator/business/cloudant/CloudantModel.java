@@ -14,7 +14,6 @@ public abstract class CloudantModel {
     public CloudantModel() {
     }
 
-
     public CloudantModel(String id, String rev) {
         this.id = id;
         this.rev = rev;

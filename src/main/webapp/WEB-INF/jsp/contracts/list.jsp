@@ -13,15 +13,6 @@
 
 	<div class="container">
 
-		<c:if test="${not empty msg}">
-			<div class="alert alert-${css} alert-dismissible" role="alert">
-				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-				<strong>${msg}</strong>
-			</div>
-		</c:if>
-
 		<h1>All contracts</h1>
 
 		<table class="table table-striped">
@@ -45,17 +36,12 @@
 					<td>${country.currencyCode}<td>
 						<spring:url value="/contracts/${country.uuid}" var="countryUrl" />
 						<spring:url value="/contracts/${country.uuid}/delete" var="deleteUrl" />
-						<spring:url value="/contracts/${user.id}/update" var="updateUrl" />
 
 						<button class="btn btn-info" onclick="location.href='${countryUrl}'">Enter salary</button>
-						<%--<button class="btn btn-primary" onclick="location.href='${updateUrl}'">Update</button>--%>
 						<button class="btn btn-danger" onclick="location.href='${deleteUrl}'">Delete</button></td>
 				</tr>
 			</c:forEach>
 		</table>
-
 	</div>
-
-
 </body>
 </html>

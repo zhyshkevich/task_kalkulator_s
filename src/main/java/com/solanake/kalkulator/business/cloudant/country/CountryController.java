@@ -21,17 +21,14 @@ public class CountryController {
         return "redirect:/contracts";
     }
 
-    // list page
     @RequestMapping(value = "/contracts", method = RequestMethod.GET)
     public String showAllUsers(Model model) {
         model.addAttribute("countries", countryService.findAll());
         return "contracts/list";
     }
 
-    // show contract
     @RequestMapping(value = "/contracts/{uuid}", method = RequestMethod.GET)
     public String showConctract(@PathVariable("uuid") String uuid, Model model) {
-
 
         CountryModel countryModel = countryService.findByUuid(uuid);
         if (countryModel == null) {
@@ -42,7 +39,6 @@ public class CountryController {
 
         return "contracts/show";
     }
-
 
     @RequestMapping(value = "/contracts", method = RequestMethod.POST)
     public String calculateEarnings(ModelMap model,
@@ -63,12 +59,10 @@ public class CountryController {
         return "redirect:contracts/";
     }
 
-    // show add user form
     @RequestMapping(value = "/contracts/add", method = RequestMethod.GET)
     public String showAddUserForm(Model model) {
         return "contracts/contractform";
     }
-
 
     @RequestMapping(value = "/contractsCalc", method = RequestMethod.POST)
     public String calculateEarnings(@RequestParam String value,
@@ -83,7 +77,6 @@ public class CountryController {
         return "contracts/calculation";
         }
 
-    // delete user
     @RequestMapping(value = "/contracts/{uuid}/delete", method = RequestMethod.GET)
     public String deleteUser(@PathVariable("uuid") String uuid) {
 

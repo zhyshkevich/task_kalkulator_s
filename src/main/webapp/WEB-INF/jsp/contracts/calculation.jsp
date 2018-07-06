@@ -11,15 +11,6 @@
 
 <div class="container">
 
-    <c:if test="${not empty msg}">
-        <div class="alert alert-${css} alert-dismissible" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            <strong>${msg}</strong>
-        </div>
-    </c:if>
-
     <h1 align="center">Contract calculations</h1>
     <br />
     <h3 align="center">You will earn on this contract (in PLN) for 22 days:</h3>
@@ -37,7 +28,5 @@
 
     </div>
 </div>
-
-
 </body>
 </html>
